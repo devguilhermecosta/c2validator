@@ -81,7 +81,15 @@ True
 
   You can return this CNPJ with punctuation.
 
-![generate cnpj formatted](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/create%20cnpj%20formatted.jpg)
+```
+>>> import c2validator as c2
+>>> 
+>>> cnpj = c2.create_cnpj(punctuation=True)
+>>> cnpj
+'55.487.153/6933-80'
+>>> c2.validate(cnpj).is_valid()
+True
+```
 
 ### Generating and testing CPF
   ![generate cpf](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/create%20cpf.jpg)
