@@ -2,10 +2,10 @@
 c2validator is used for validate CPF and CNPJ, and create CPF and CNPJ for tests.
 
 ## INSTALLING
-> pip install c2validator
+`python -m pip install c2validator`
 
-### For cloning
-> https://github.com/devguilhermecosta/c2validator.git
+## CLONING THE REPOSITORY
+`git clone https://github.com/devguilhermecosta/c2validator.git`
 
 ## **HOW USE THIS PACKAGE**
 ## **Validating CPF or CNPJ**
