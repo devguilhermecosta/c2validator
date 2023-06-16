@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "c2validator"
+version = "1.0.0"
+authors = [
+  { name="Guilherme Costa", email="guilherme.partic@gmail.com" },
+]
+description = "This package validate and generate CPF and CNPJ for tests"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/devguilhermecosta/c2validator"
+"Bug Tracker" = "https://github.com/devguilhermecosta/c2validator/issues"
