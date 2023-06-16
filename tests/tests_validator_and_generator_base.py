@@ -1,6 +1,6 @@
 # flake8: noqa
 import unittest
-from c2validator.validator import ValidateOrCreateCPForCNPJ
+from src.c2validator.validator import ValidateOrCreateCPForCNPJ
 
 
 class ValidateOrCreateCPForCNPJTests(unittest.TestCase):

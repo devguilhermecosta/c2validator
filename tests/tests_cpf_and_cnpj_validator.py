@@ -1,5 +1,5 @@
 from unittest import TestCase
-import c2validator as c2
+import src.c2validator as c2
 import string as st
 
 
