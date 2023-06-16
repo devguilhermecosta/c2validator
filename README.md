@@ -92,8 +92,25 @@ True
 ```
 
 ### Generating and testing CPF
-  ![generate cpf](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/create%20cpf.jpg)
 
-  You can return this CPF with punctuation.
+```
+>>> import c2validator as c2
+>>> 
+>>> cpf = c2.create_cpf()
+>>> cpf
+'05170816367'
+>>> c2.validate(cpf).is_valid()
+True
+```
 
-![generate cpf formatted](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/create%20cpf%20formatted.jpg)
+  You can return this CPF **`with punctuation`**.
+
+```
+>>> import c2validator as c2
+>>> 
+>>> cpf = c2.create_cpf(punctuation=True)
+>>> cpf
+'415.684.161-80'
+>>> c2.validate(cpf).is_valid()
+True
+```
