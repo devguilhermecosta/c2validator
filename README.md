@@ -53,7 +53,15 @@ True
 
 Now, if the CPF or CNPJ is invalid, the formatted() method returns 'invalid CPF or CNPJ'.
 
-  ![image of cpf invalid formatted](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/cpf%20invalid%20formatted.jpg)
+```
+>>> import c2validator as c2
+>>> 
+>>> cpf = c2.validate('111.111.111-11')
+>>> cpf.is_valid()
+False
+>>> cpf.formatted()
+'invalid CPF or CNPJ'
+```
 
 ## **Generating CPF and CNPJ**
 
