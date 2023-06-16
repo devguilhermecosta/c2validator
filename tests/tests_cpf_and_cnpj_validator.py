@@ -6,13 +6,13 @@ import string as st
 class ValidateCPForCNPJTests(TestCase):
     def test_cpf_validator_returns_true_if_cpf_is_valid(self) -> None:
         cpf = c2.create_cpf()
-        cpf_validate = c2.validate_cpf_or_cnpj(cpf)
+        cpf_validate = c2.validate(cpf)
         self.assertTrue(cpf_validate.is_valid())
 
     def test_cpf_validator_returns_false_if_cpf_is_invalid(self) -> None:
         cpf = '000.000.000-00'
-        self.assertFalse(c2.validate_cpf_or_cnpj(cpf).is_valid())
-        self.assertEqual(c2.validate_cpf_or_cnpj(cpf).formatted(),
+        self.assertFalse(c2.validate(cpf).is_valid())
+        self.assertEqual(c2.validate(cpf).formatted(),
                          'invalid CPF or CNPJ',
                          )
 
@@ -24,10 +24,10 @@ class ValidateCPForCNPJTests(TestCase):
         '''
         cpf = c2.create_cpf()
         cpf + st.ascii_letters + st.punctuation
-        self.assertTrue(c2.validate_cpf_or_cnpj(cpf).is_valid())
-        self.assertNotIn('.', c2.validate_cpf_or_cnpj(cpf).formatted())
-        self.assertNotIn('-', c2.validate_cpf_or_cnpj(cpf).formatted())
-        self.assertNotIn('abcv', c2.validate_cpf_or_cnpj(cpf).formatted())
+        self.assertTrue(c2.validate(cpf).is_valid())
+        self.assertNotIn('.', c2.validate(cpf).formatted())
+        self.assertNotIn('-', c2.validate(cpf).formatted())
+        self.assertNotIn('abcv', c2.validate(cpf).formatted())
 
     def test_cpf_validator_returns_false_if_cpf_is_invalid_and_have_letters_and_symbols(self) -> None:  # noqa: E501
         '''
@@ -36,8 +36,8 @@ class ValidateCPForCNPJTests(TestCase):
         '''
         cpf = '111.111.111-11'
         cpf + st.ascii_letters + st.punctuation
-        self.assertFalse(c2.validate_cpf_or_cnpj(cpf).is_valid())
-        self.assertEqual(c2.validate_cpf_or_cnpj(cpf).formatted(),
+        self.assertFalse(c2.validate(cpf).is_valid())
+        self.assertEqual(c2.validate(cpf).formatted(),
                          'invalid CPF or CNPJ',
                          )
 
@@ -47,8 +47,8 @@ class ValidateCPForCNPJTests(TestCase):
             less then 11, the return is 'invalid CPF or CNPJ'
         '''
         cpf = c2.create_cpf()[:5]  # get first 5 chars from cpf
-        self.assertFalse(c2.validate_cpf_or_cnpj(cpf).is_valid())
-        self.assertEqual(c2.validate_cpf_or_cnpj(cpf).formatted(),
+        self.assertFalse(c2.validate(cpf).is_valid())
+        self.assertEqual(c2.validate(cpf).formatted(),
                          'invalid CPF or CNPJ',
                          )
 
@@ -60,9 +60,9 @@ class ValidateCPForCNPJTests(TestCase):
         '''
         cpf = c2.create_cpf()
         cpf + st.ascii_letters + st.punctuation
-        self.assertTrue(c2.validate_cpf_or_cnpj(cpf).is_valid())
-        self.assertNotIn('.', c2.validate_cpf_or_cnpj(cpf).formatted())
-        self.assertNotIn('-', c2.validate_cpf_or_cnpj(cpf).formatted())
+        self.assertTrue(c2.validate(cpf).is_valid())
+        self.assertNotIn('.', c2.validate(cpf).formatted())
+        self.assertNotIn('-', c2.validate(cpf).formatted())
 
     def test_cpf_validator_returns_an_cpf_formatted_with_punctuation_if_punctuation_kwarg(self) -> None:  # noqa: E501
         '''
@@ -72,27 +72,27 @@ class ValidateCPForCNPJTests(TestCase):
         '''
         cpf = c2.create_cpf()
         cpf + st.punctuation
-        self.assertTrue(c2.validate_cpf_or_cnpj(cpf).is_valid())
+        self.assertTrue(c2.validate(cpf).is_valid())
         self.assertIn('.',
-                      c2.validate_cpf_or_cnpj(cpf).formatted(
+                      c2.validate(cpf).formatted(
                           punctuation=True,
                           )
                       )
         self.assertIn('-',
-                      c2.validate_cpf_or_cnpj(cpf).formatted(
+                      c2.validate(cpf).formatted(
                           punctuation=True,
                           )
                       )
 
     def test_cnpj_validator_returns_true_if_cnpj_is_valid(self) -> None:
         cnpj = c2.create_cnpj()
-        cnpj_validate = c2.validate_cpf_or_cnpj(cnpj)
+        cnpj_validate = c2.validate(cnpj)
         self.assertTrue(cnpj_validate.is_valid())
 
     def test_cnpj_validator_returns_false_if_cnpj_is_invalid(self) -> None:
         cnpj = '00.000.000/0000-00'
-        self.assertFalse(c2.validate_cpf_or_cnpj(cnpj).is_valid())
-        self.assertEqual(c2.validate_cpf_or_cnpj(cnpj).formatted(),
+        self.assertFalse(c2.validate(cnpj).is_valid())
+        self.assertEqual(c2.validate(cnpj).formatted(),
                          'invalid CPF or CNPJ',
                          )
 
@@ -104,10 +104,10 @@ class ValidateCPForCNPJTests(TestCase):
         '''
         cnpj = c2.create_cnpj()
         cnpj + st.ascii_letters + st.punctuation
-        self.assertTrue(c2.validate_cpf_or_cnpj(cnpj).is_valid())
-        self.assertNotIn('.', c2.validate_cpf_or_cnpj(cnpj).formatted())
-        self.assertNotIn('-', c2.validate_cpf_or_cnpj(cnpj).formatted())
-        self.assertNotIn('abcv', c2.validate_cpf_or_cnpj(cnpj).formatted())
+        self.assertTrue(c2.validate(cnpj).is_valid())
+        self.assertNotIn('.', c2.validate(cnpj).formatted())
+        self.assertNotIn('-', c2.validate(cnpj).formatted())
+        self.assertNotIn('abcv', c2.validate(cnpj).formatted())
 
     def test_cnpj_validator_returns_false_if_cnpj_is_invalid_and_have_letters_and_symbols(self) -> None:  # noqa: E501
         '''
@@ -116,8 +116,8 @@ class ValidateCPForCNPJTests(TestCase):
         '''
         cnpj = '11.111.111/1111-11'
         cnpj + st.ascii_letters + st.punctuation
-        self.assertFalse(c2.validate_cpf_or_cnpj(cnpj).is_valid())
-        self.assertEqual(c2.validate_cpf_or_cnpj(cnpj).formatted(),
+        self.assertFalse(c2.validate(cnpj).is_valid())
+        self.assertEqual(c2.validate(cnpj).formatted(),
                          'invalid CPF or CNPJ',
                          )
 
@@ -127,8 +127,8 @@ class ValidateCPForCNPJTests(TestCase):
             less then 14, the return is 'invalid CPF or CNPJ'
         '''
         cnpj = c2.create_cnpj()[:5]  # get first 5 chars from cpf
-        self.assertFalse(c2.validate_cpf_or_cnpj(cnpj).is_valid())
-        self.assertEqual(c2.validate_cpf_or_cnpj(cnpj).formatted(),
+        self.assertFalse(c2.validate(cnpj).is_valid())
+        self.assertEqual(c2.validate(cnpj).formatted(),
                          'invalid CPF or CNPJ',
                          )
 
@@ -140,10 +140,10 @@ class ValidateCPForCNPJTests(TestCase):
         '''
         cnpj = c2.create_cnpj()
         cnpj + st.ascii_letters + st.punctuation
-        self.assertTrue(c2.validate_cpf_or_cnpj(cnpj).is_valid())
-        self.assertNotIn('.', c2.validate_cpf_or_cnpj(cnpj).formatted())
-        self.assertNotIn('/', c2.validate_cpf_or_cnpj(cnpj).formatted())
-        self.assertNotIn('-', c2.validate_cpf_or_cnpj(cnpj).formatted())
+        self.assertTrue(c2.validate(cnpj).is_valid())
+        self.assertNotIn('.', c2.validate(cnpj).formatted())
+        self.assertNotIn('/', c2.validate(cnpj).formatted())
+        self.assertNotIn('-', c2.validate(cnpj).formatted())
 
     def test_cnpj_validator_returns_an_cnpj_formatted_with_punctuation_if_punctuation_kwarg(self) -> None:  # noqa: E501
         '''
@@ -153,14 +153,14 @@ class ValidateCPForCNPJTests(TestCase):
         '''
         cnpj = c2.create_cnpj()
         cnpj + st.punctuation
-        self.assertTrue(c2.validate_cpf_or_cnpj(cnpj).is_valid())
+        self.assertTrue(c2.validate(cnpj).is_valid())
         self.assertIn('.',
-                      c2.validate_cpf_or_cnpj(cnpj).formatted(
+                      c2.validate(cnpj).formatted(
                           punctuation=True,
                           )
                       )
         self.assertIn('-',
-                      c2.validate_cpf_or_cnpj(cnpj).formatted(
+                      c2.validate(cnpj).formatted(
                           punctuation=True,
                           )
                       )

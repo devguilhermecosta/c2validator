@@ -10,7 +10,7 @@ class CPFandCNPJGeneratorTests(TestCase):
 
     def test_cpf_generator_can_be_validated_by_same_validator_into_class(self) -> None:  # noqa: E501
         cpf = c2.create_cpf()
-        self.assertTrue(c2.validate_cpf_or_cnpj(cpf))
+        self.assertTrue(c2.validate(cpf))
 
     def test_cpf_generator_returns_a_cpf_with_punctuation_if_punctuation_kwarg(self) -> None:  # noqa: E501
         cpf = c2.create_cpf(punctuation=True)
@@ -29,7 +29,7 @@ class CPFandCNPJGeneratorTests(TestCase):
 
     def test_cnpj_generator_can_be_validated_by_same_validator_into_class(self) -> None:  # noqa: E501
         cnpj = c2.create_cnpj()
-        self.assertTrue(c2.validate_cpf_or_cnpj(cnpj))
+        self.assertTrue(c2.validate(cnpj))
 
     def test_cnpj_generator_returns_a_cnpj_with_punctuation_if_punctuation_kwarg(self) -> None:  # noqa: E501
         cnpj = c2.create_cnpj(punctuation=True)
