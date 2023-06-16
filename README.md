@@ -7,8 +7,8 @@ c2validator is used for validate CPF and CNPJ, and create CPF and CNPJ for tests
 ### For cloning
 > https://github.com/devguilhermecosta/c2validator.git
 
-## **How use this package**
-## Validating CPF or CNPJ
+## **HOW USE THIS PACKAGE**
+## **Validating CPF or CNPJ**
 
   ![image of cpf is valid](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/img%20cpf%20is%20valid.jpg)
 
@@ -36,3 +36,17 @@ formatted(punctuation=True).
 Now, if the CPF or CNPJ is invalid, the formatted() method returns 'invalid CPF or CNPJ'.
 
   ![image of cpf invalid formatted](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/cpf%20invalid%20formatted.jpg)
+
+
+## **Generating CPF and CNPJ**
+
+You can use this package for generate CPF and CNPJ for test your code.
+
+
+### Generating and testing CNPJ
+  ![generate cnpj](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/create%20cnpj.jpg)
+
+  You can return this CNPJ with punctuation.
+
+![generate cnpj formatted](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/create%20cnpj%20formatted.jpg)
+  
