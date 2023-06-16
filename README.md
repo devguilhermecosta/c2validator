@@ -50,3 +50,10 @@ You can use this package for generate CPF and CNPJ for test your code.
 
 ![generate cnpj formatted](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/create%20cnpj%20formatted.jpg)
   
+
+### Generating and testing CPF
+  ![generate cpf](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/create%20cpf.jpg)
+
+  You can return this CNPJ with punctuation.
+
+![generate cpf formatted](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/create%20cpf%20formatted.jpg)
