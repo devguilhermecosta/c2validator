@@ -1,8 +1,14 @@
 # c2validator
 c2validator is used for validate CPF and CNPJ, and create CPF and CNPJ for tests.
 
+## INSTALLING
+> pip install c2validator
+
+### For cloning
+> https://github.com/devguilhermecosta/c2validator.git
+
 ## **How use this package**
-### Validating CPF or CNPJ
+## Validating CPF or CNPJ
 
   ![image of cpf is valid](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/img%20cpf%20is%20valid.jpg)
 
