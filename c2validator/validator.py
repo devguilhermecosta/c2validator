@@ -8,7 +8,11 @@ class ValidateOrCreateCPForCNPJ:
         self.__cpf_or_cnpj: str = cpf_or_cnpj
 
     @staticmethod
-    def __remove_special_characters(string_chain: str) -> str:
+    def __clear(string_chain: str) -> str:
+        '''
+            Clear the string.
+            Remove all letters, symbols and punctuation.
+        '''
         symbols = [
             ' ', '"', ',', '.', ';', ':', '?',
             '°', '~', '^', ']', '}', 'º',
@@ -27,7 +31,7 @@ class ValidateOrCreateCPForCNPJ:
         return s
 
     def __check_if_cpf_or_cnpj(self, cpf_or_cnpj: str) -> str | None:
-        treated_data: str = self.__remove_special_characters(cpf_or_cnpj)
+        treated_data: str = self.__clear(cpf_or_cnpj)
 
         if len(treated_data) == 11:
             return 'cpf'
@@ -102,6 +106,9 @@ class ValidateOrCreateCPForCNPJ:
                 return True
 
     def is_valid(self) -> bool:
+        """
+            Return True if valid, otherwise False,
+        """
         if not isinstance(self.__cpf_or_cnpj, str):
             try:
                 self.__cpf_or_cnpj = str(self.__cpf_or_cnpj)
@@ -109,7 +116,7 @@ class ValidateOrCreateCPForCNPJ:
                 return False
 
         check_data_type = self.__check_if_cpf_or_cnpj(self.__cpf_or_cnpj)
-        treated_data: str = self.__remove_special_characters(
+        treated_data: str = self.__clear(
             self.__cpf_or_cnpj
             )
 
@@ -125,22 +132,34 @@ class ValidateOrCreateCPForCNPJ:
 
         return False
 
+    def __cpf_with_punctuation(self, cpf: str) -> str:
+        '''
+            returns the cpf in the format: 000.000.000-00
+        '''
+        return f'{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}'
+
+    def __cnpj_with_punctuation(self, cnpj: str) -> str:
+        '''
+            returns the cnpj in the format: 00.000.000/0000-00
+        '''
+        return f'{cnpj[:2]}.{cnpj[2:5]}.{cnpj[5:8]}/{cnpj[8:12]}-{cnpj[12:]}'
+
     def formatted(self, punctuation: bool = False) -> str:
         """
             if cpf_or_cnpj is valid, return cpf_of_cnpj
             without symbols and letters.
-            If punctuation == True, returns in format
-            cpf: 000.000.000-90, cnpj: 00.000.000/0000-00.
+            If punctuation == True, returns in format: cpf: 000.000.000-90,
+            cnpj: 00.000.000/0000-00.
         """
         if self.is_valid():
             if punctuation:
-                c = self.__remove_special_characters(self.__cpf_or_cnpj)
+                c = self.__clear(self.__cpf_or_cnpj)
                 if self.__check_if_cpf_or_cnpj(c) == 'cpf':
-                    return f'{c[:3]}.{c[3:6]}.{c[6:9]}-{c[9:]}'
+                    return self.__cpf_with_punctuation(c)
                 if self.__check_if_cpf_or_cnpj(c) == 'cnpj':
-                    return f'{c[:2]}.{c[2:5]}.{c[5:8]}/{c[8:12]}-{c[12:]}'
+                    return self.__cnpj_with_punctuation(c)
 
-            return self.__remove_special_characters(self.__cpf_or_cnpj)
+            return self.__clear(self.__cpf_or_cnpj)
 
         return 'invalid CPF or CNPJ'
 
@@ -180,35 +199,37 @@ class ValidateOrCreateCPForCNPJ:
         return digit_one + digit_two
 
     def generate_cpf(self, punctuation: bool = False) -> str:
-        """ create an new valid CPF """
+        """ create a new valid CPF """
         pre_cpf = [randint(0, 9) for i in range(11)][0:9]
-        pre_cpf_to_str = self.__remove_special_characters(str(pre_cpf))
+        pre_cpf_to_str = self.__clear(str(pre_cpf))
 
         cpf_generated = pre_cpf_to_str + self.__calc_digits_cpf(pre_cpf_to_str)
 
         if punctuation:
-            c = cpf_generated
-            return f'{c[:3]}.{c[3:6]}.{c[6:9]}-{c[9:]}'
+            return self.__cpf_with_punctuation(cpf_generated)
 
         return cpf_generated
 
     def generate_cnpj(self, punctuation: bool = False) -> str:
-        """ create an new valid cnpj """
+        """ create a new valid cnpj """
         pre_cnpj = [randint(0, 9) for i in range(14)][:12]
-        pre_cnpj_to_str = self.__remove_special_characters(str(pre_cnpj))
+        pre_cnpj_to_str = self.__clear(str(pre_cnpj))
 
         cnpj_generated = pre_cnpj_to_str + self.__calc_digits_cnpj(
             pre_cnpj_to_str,
             )
 
         if punctuation:
-            c = cnpj_generated
-            return f'{c[:2]}.{c[2:5]}.{c[5:8]}/{c[8:12]}-{c[12:]}'
+            return self.__cnpj_with_punctuation(cnpj_generated)
 
         return cnpj_generated
 
 
 def validate_cpf_or_cnpj(cpf_or_cnpj: str) -> ValidateOrCreateCPForCNPJ:
+    """
+        Create a instance of ValidateOrCreateCPForCNPJ class.
+        You can use this methods: is_valid(), formatted().
+    """
     new_obj = ValidateOrCreateCPForCNPJ(cpf_or_cnpj)
     return new_obj
 
