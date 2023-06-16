@@ -13,7 +13,7 @@ c2validator is used for validate CPF and CNPJ, and create CPF and CNPJ for tests
   ![image of cpf is valid](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/img%20cpf%20is%20valid.jpg)
 
 This is semple.
-If CPF or CNPJ is invalid, the return we will `**False**`.
+If CPF or CNPJ is invalid, the return we will `False`.
 
 
 
