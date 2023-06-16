@@ -22,7 +22,7 @@ True
 This is semple.
 If CPF or CNPJ is invalid, the return we will `False`.
 
-If the value contains letters symbols or punctuation, a private __clean() method will clean the data before validate.
+If the value contains letters, symbols or punctuation, a private __clean() method will clean the data before validate.
 
 ```
 >>> import c2validator as c2
