@@ -79,7 +79,7 @@ You can use this package for generate CPF and CNPJ for test your code.
 True
 ```
 
-  You can return this CNPJ with punctuation.
+  You can return this CNPJ **`with punctuation`**.
 
 ```
 >>> import c2validator as c2
