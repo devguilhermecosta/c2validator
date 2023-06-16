@@ -64,7 +64,7 @@ False
 
 ## **Generating CPF and CNPJ**
 
-You can use this package for generate CPF and CNPJ for test your code.
+You can use this package for generate CPF and CNPJ to test your code.
 
 ### Generating and testing CNPJ
 
