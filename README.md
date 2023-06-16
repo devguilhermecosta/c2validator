@@ -10,12 +10,14 @@ c2validator is used for validate CPF and CNPJ, and create CPF and CNPJ for tests
 ## **HOW USE THIS PACKAGE**
 ## **Validating CPF or CNPJ**
 
-`>>> import c2validator as c2`
+```
+>>> import c2validator as c2
 
-`>>> cpf = c2.validate('725.849.240-21') `
-`>>> cpf`
-`>>> cpf.is_valid()`
-`>>> True`
+>>> cpf = c2.validate('725.849.240-21') 
+>>> cpf
+>>> cpf.is_valid()
+>>> True
+```
 
 
 This is semple.
