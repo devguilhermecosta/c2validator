@@ -4,4 +4,4 @@ c2validator is used for validate CPF and CNPJ, and create CPF and CNPJ for tests
 ## **How use this package**
 ### Validating CPF or CNPJ
 
-> import c2validator as c2
+  ![image of cpf is valid](https://drive.google.com/file/d/1-bg-4XxjprN18m-D4Hapmlj3MDJZz9et/view?usp=drive_link)
