@@ -16,7 +16,7 @@ c2validator is used for validate CPF and CNPJ, and create CPF or CNPJ for tests.
 >>> cpf = c2.validate('725.849.240-21') 
 >>> cpf
 >>> cpf.is_valid()
->>> True
+True
 ```
 
 
