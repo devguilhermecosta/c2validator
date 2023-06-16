@@ -51,7 +51,7 @@ True
 '725.849.240-21'
 ```
 
-Now, if the CPF or CNPJ is invalid, the formatted() method returns `invalid CPF or CNPJ`.
+Now, if the CPF or CNPJ is invalid, the formatted() method returns **`invalid CPF or CNPJ`**.
 
 ```
 >>> import c2validator as c2
