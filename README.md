@@ -1,5 +1,5 @@
 # c2validator
-c2validator is used for validate CPF and CNPJ, and create CPF and CNPJ for tests.
+c2validator is used for validate CPF and CNPJ, and create CPF or CNPJ for tests.
 
 ## INSTALLING
 `$ python -m pip install c2validator`
