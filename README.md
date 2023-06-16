@@ -68,7 +68,16 @@ False
 You can use this package for generate CPF and CNPJ for test your code.
 
 ### Generating and testing CNPJ
-  ![generate cnpj](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/create%20cnpj.jpg)
+
+```
+>>> import c2validator as c2
+>>> 
+>>> cnpj = c2.create_cnpj()
+>>> cnpj
+'89979419564354'
+>>> c2.validate(cnpj).is_valid()
+True
+```
 
   You can return this CNPJ with punctuation.
 
