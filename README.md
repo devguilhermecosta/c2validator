@@ -31,7 +31,6 @@ If the value contains letters or symbols, a private __clean() method will clean 
 >>> cpf = c2.validate('725.849abc.240//-21') 
 >>> cpf.is_valid()
 True
->>>
 ```
 
 ## Returning a clean value
@@ -40,7 +39,17 @@ This method returns the value without symbols, letters or punctuation.
 But, if you need a formatted data with punctuation, you can use
 formatted(punctuation=True).
 
-  ![image of cpf valid formatted](https://github.com/devguilhermecosta/c2validator/blob/main/assets/images/cpf%20valid%20formatted.jpg)
+```
+>>> import c2validator as c2
+>>> 
+>>> cpf = c2.validate('725.849abc.240//-21') 
+>>> cpf.is_valid()
+True
+>>> cpf.formatted()
+'72584924021'
+>>> cpf.formatted(punctuation=True) 
+'725.849.240-21'
+```
 
 Now, if the CPF or CNPJ is invalid, the formatted() method returns 'invalid CPF or CNPJ'.
 
