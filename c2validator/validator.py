@@ -225,7 +225,7 @@ class ValidateOrCreateCPForCNPJ:
         return cnpj_generated
 
 
-def validate_cpf_or_cnpj(cpf_or_cnpj: str) -> ValidateOrCreateCPForCNPJ:
+def validate(cpf_or_cnpj: str) -> ValidateOrCreateCPForCNPJ:
     """
         Create a instance of ValidateOrCreateCPForCNPJ class.
         You can use this methods: is_valid(), formatted().
