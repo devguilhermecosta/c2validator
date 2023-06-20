@@ -1,4 +1,4 @@
-import string
+import string as st
 from functools import reduce
 from random import randint
 
@@ -10,25 +10,10 @@ class ValidateOrCreateCPForCNPJ:
     @staticmethod
     def __clear(string_chain: str) -> str:
         '''
-            Clear the string.
-            Remove all letters, symbols and punctuation.
+            Clear the string. Get just digits.
         '''
-        symbols = [
-            ' ', '"', ',', '.', ';', ':', '?',
-            '°', '~', '^', ']', '}', 'º',
-            '´', '`', '[', 'ª', '{', '+',
-            '-', '*', '/', '|', '_', '=',
-            '!', '@', '#', '$', '%',
-            '&', '¨', '(', ')'
-            ]
-
-        for s in string.ascii_letters:
-            symbols.append(s)
-
-        s = string_chain.translate({
-            ord(s): '' for s in symbols
-        })
-        return s
+        cleaned_data = ''.join([char for char in string_chain if char in st.digits])  # noqa: E501
+        return cleaned_data
 
     def __check_if_cpf_or_cnpj(self, cpf_or_cnpj: str) -> str | None:
         treated_data: str = self.__clear(cpf_or_cnpj)
