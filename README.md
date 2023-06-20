@@ -24,13 +24,6 @@ If CPF or CNPJ is invalid, the return we will `False`.
 
 If the value contains letters, symbols or punctuation, a private __clean() method will clean the data before validate.
 
-```
->>> import c2validator as c2
->>> 
->>> cpf = c2.validate('725.849.240-21') 
->>> cpf.is_valid()
-True
-```
 
 ## Returning a clean value
 When the CPF or CNPJ is valid, you can use the formatted() method.
