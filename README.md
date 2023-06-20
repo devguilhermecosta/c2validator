@@ -27,7 +27,7 @@ If the value contains letters, symbols or punctuation, a private __clean() metho
 ```
 >>> import c2validator as c2
 >>> 
->>> cpf = c2.validate('725.849abc.240//-21') 
+>>> cpf = c2.validate('725.849.240-21') 
 >>> cpf.is_valid()
 True
 ```
@@ -41,7 +41,7 @@ formatted(punctuation=True).
 ```
 >>> import c2validator as c2
 >>> 
->>> cpf = c2.validate('725.849abc.240//-21') 
+>>> cpf = c2.validate('725.849.240-21') 
 >>> cpf.is_valid()
 True
 >>> cpf.formatted()
